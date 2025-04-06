@@ -54,6 +54,17 @@ class SingleLinkedList:
             new_node=Node(data)
             new_node.next=cur.next
             cur.next=new_node        
+    def deleteNodeAtPosition(self,pos):
+        '''
+        This method deletes a node in an specific position
+        '''
+        cur=self.head
+        cur_pos=0
+        if cur_pos<pos:
+            cur=cur.next
+            cur_pos+=1
+        cur.next=cur.next.next
+
 
 
 
@@ -61,6 +72,7 @@ class SingleLinkedList:
 
 
     def printNodes(self):
+        print("Print nodes")
         cur=self.head
         while cur:
             print(cur.data)
@@ -73,8 +85,11 @@ if __name__=="__main__":
     singleLinkedListObj.prepend(15)
     singleLinkedListObj.prepend(6)
     singleLinkedListObj.append(8)
+   
     singleLinkedListObj.printNodes()
     singleLinkedListObj.appendNodeAtPosition(25,2)
+    singleLinkedListObj.printNodes()
+    singleLinkedListObj.deleteNodeAtPosition(2)
     singleLinkedListObj.printNodes()
     
     
