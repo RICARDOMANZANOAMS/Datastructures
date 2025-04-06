@@ -21,7 +21,23 @@ class SingleLinkedList:
             new_node.next=self.head #point new_node next to the head
             self.head=new_node #move the head to the new_node
 
-    
+    def append(self,data):
+        '''
+        This method appends a new node at the end of the linked list
+
+        '''
+        if not self.head:  #check if no nodes in linked list
+            new_node=Node(data) #create first node
+            self.head=new_node #move head pointer to node
+        else:
+            cur=self.head  #Get node that it is the head
+            while cur.next: #advance until reach the last node
+                cur=cur.next #advance until reach next node
+            new_node=Node(data) #create new node
+            cur.next=new_node #point the last node next to new node
+            new_node.next=None #point new node to none
+
+
 
     def printNodes(self):
         cur=self.head
@@ -36,6 +52,9 @@ if __name__=="__main__":
     singleLinkedListObj.prepend(15)
     singleLinkedListObj.prepend(6)
     singleLinkedListObj.printNodes()
+    singleLinkedListObj.append(8)
+    singleLinkedListObj.printNodes()
+    
     
     
     
