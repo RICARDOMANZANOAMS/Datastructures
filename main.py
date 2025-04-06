@@ -22,6 +22,19 @@ class doubleLinkedList():
             new_node.previous=self.tail #point previous of new node to the last node
             self.tail=new_node #move the pointer to the new node
 
+    def prependNode(self,data):
+        '''
+        This method append a node a the beggining of the linked list
+        '''
+        if self.tail==None and self.head==None: #check if nodes in linked list
+            new_node=Node(data)  #create new node
+            self.tail=self.head=new_node #assign pointers head and tail to the new node
+        else:
+            new_node=Node(data) #create new node
+            new_node.next=self.head # point the next node of the new node to the previous head
+            self.head.previos=new_node #point the previos head previous to the new node
+            self.head=new_node #move the pointer head to the new node
+        
     def printNodesFromHead(self):
         '''
         This method prints the nodes in the linked list
@@ -49,6 +62,11 @@ if __name__=="__main__":
     doubleLinkedListObj.append(1)
     doubleLinkedListObj.printNodesFromHead()
     doubleLinkedListObj.printNodesFromTail()
+    doubleLinkedListObj.prependNode(90)
+    doubleLinkedListObj.prependNode(38)
+    doubleLinkedListObj.printNodesFromHead()
+
+    
 
 
 
