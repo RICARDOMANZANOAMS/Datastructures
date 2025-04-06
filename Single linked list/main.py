@@ -14,12 +14,14 @@ class SingleLinkedList:
             data: Var that contains the data of each node
         '''
         if not self.head:
-            new_node=Node(data)
-            self.head=new_node
+            new_node=Node(data) # create new node
+            self.head=new_node  #Point the head to the new node
         else:
-            new_node=Node(data)
-            new_node.next=self.head
-            self.head=new_node
+            new_node=Node(data)  #create new node
+            new_node.next=self.head #point new_node next to the head
+            self.head=new_node #move the head to the new_node
+
+    
 
     def printNodes(self):
         cur=self.head
