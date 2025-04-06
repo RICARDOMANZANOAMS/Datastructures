@@ -37,6 +37,27 @@ class SingleLinkedList:
             cur.next=new_node #point the last node next to new node
             new_node.next=None #point new node to none
 
+    def appendNodeAtPosition(self,data,position):
+        '''
+        This method append a node after the position specify.
+        It starts the count with 0 in the head
+        '''
+        if not self.head:
+            new_node=Node(data)
+            self.head=new_node
+        else:
+            cur=self.head
+            cur_pos=0
+            while cur_pos<=position:
+                cur_pos+=1
+                cur=cur.next
+            new_node=Node(data)
+            new_node.next=cur.next
+            cur.next=new_node        
+
+
+
+
 
 
     def printNodes(self):
@@ -51,8 +72,9 @@ if __name__=="__main__":
     singleLinkedListObj.prepend(34)
     singleLinkedListObj.prepend(15)
     singleLinkedListObj.prepend(6)
-    singleLinkedListObj.printNodes()
     singleLinkedListObj.append(8)
+    singleLinkedListObj.printNodes()
+    singleLinkedListObj.appendNodeAtPosition(25,2)
     singleLinkedListObj.printNodes()
     
     
