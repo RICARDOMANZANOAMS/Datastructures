@@ -42,28 +42,29 @@ class SingleLinkedList:
         This method append a node after the position specify.
         It starts the count with 0 in the head
         '''
-        if not self.head:
+        if not self.head: #Check empty linked list
             new_node=Node(data)
             self.head=new_node
         else:
-            cur=self.head
-            cur_pos=0
-            while cur_pos<=position:
+            cur=self.head  # Get the head node
+            cur_pos=0   
+            while cur_pos<=position: #Advance to the previous node to eliminate
                 cur_pos+=1
                 cur=cur.next
-            new_node=Node(data)
-            new_node.next=cur.next
-            cur.next=new_node        
+            new_node=Node(data) #Add new node
+            new_node.next=cur.next  #Point the new node next to the next node
+            cur.next=new_node  #Assign the current next to the new node
     def deleteNodeAtPosition(self,pos):
         '''
         This method deletes a node in an specific position
         '''
-        cur=self.head
-        cur_pos=0
-        if cur_pos<pos:
+        cur=self.head  #Assign head to current
+        cur_pos=0   #Var to keep track position
+        if cur_pos<pos:   #conditional to find the position of the previous node of the node to be deleted
             cur=cur.next
             cur_pos+=1
-        cur.next=cur.next.next
+        cur.next=cur.next.next  #Point the previos node next to next.next skipping one node
+
 
 
 
