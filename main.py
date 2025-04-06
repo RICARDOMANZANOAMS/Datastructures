@@ -8,4 +8,48 @@ class doubleLinkedList():
     def __init__(self):
         self.head=None
         self.tail=None
-        
+
+    def append(self,data):
+        '''
+        This method append a node at the end of the linked list
+        '''
+        if self.head==None and self.tail==None: #check if nodes in the list
+            new_node=Node(data)  #create new node
+            self.head=self.tail=new_node #point tail and head pointers to the new node
+        else:
+            new_node=Node(data)  #create new node
+            self.tail.next=new_node #point tail next to the new node
+            new_node.previous=self.tail #point previous of new node to the last node
+            self.tail=new_node #move the pointer to the new node
+
+    def printNodesFromHead(self):
+        '''
+        This method prints the nodes in the linked list
+        '''
+        print("Print nodes strating at the head")
+        cur=self.head
+        while cur:
+            print(cur.data)
+            cur=cur.next
+
+    def printNodesFromTail(self):
+        '''
+        This method prints the nodes starting from the end
+        '''
+        print("Print nodes starting at the tail")
+        cur=self.tail
+        while cur:
+            print(cur.data)
+            cur=cur.previous
+
+if __name__=="__main__":
+    doubleLinkedListObj=doubleLinkedList()
+    doubleLinkedListObj.append(19)
+    doubleLinkedListObj.append(3)
+    doubleLinkedListObj.append(1)
+    doubleLinkedListObj.printNodesFromHead()
+    doubleLinkedListObj.printNodesFromTail()
+
+
+
+
