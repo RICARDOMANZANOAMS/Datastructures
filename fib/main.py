@@ -8,4 +8,4 @@ class fibo:
         else:
             return self.fib(n-1)+self.fib(n-2)
 fibobj=fibo()
-print(fibobj.fib(10))
+print(fibobj.fib(5))
