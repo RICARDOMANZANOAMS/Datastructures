@@ -65,6 +65,16 @@ class SingleLinkedList:
             cur_pos+=1
         cur.next=cur.next.next  #Point the previos node next to next.next skipping one node
 
+    def reverseList(self):
+        predecesor=None
+        cur=self.head
+        while cur:
+            nextNode=cur.next   
+            cur.next=predecesor
+            predecesor=cur
+            cur=nextNode
+        self.head=predecesor
+
 
 
 
@@ -92,6 +102,9 @@ if __name__=="__main__":
     singleLinkedListObj.printNodes()
     singleLinkedListObj.deleteNodeAtPosition(2)
     singleLinkedListObj.printNodes()
+    singleLinkedListObj.reverseList()
+    singleLinkedListObj.printNodes()
+
     
     
     
